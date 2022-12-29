@@ -12,20 +12,20 @@ hooks:
   ApplicationStop:
     - location: script/ApplicationStop.sh
       timeout: 60
-      runas: ubuntu
+      runas: root
   BeforeInstall:
     - location: script/BeforeInstall.sh
       timeout: 60
-      runas: ubuntu
+      runas: root
   AfterInstall:
     - location: script/AfterInstall.sh
       timeout: 60
-      runas: ubuntu
+      runas: root
   ApplicationStart:
     - location: script/ApplicationStart.sh
       timeout: 180
-      runas: ubuntu
-  ValidateSercive:
+      runas: root
+  ValidateService:
     - location: script/ValidateService.sh
       timeout: 60
-      runas: ubuntu
+      runas: root
