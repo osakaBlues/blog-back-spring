@@ -10,22 +10,22 @@ permissions:
     group: ubuntu
 hooks:
   ApplicationStop:
-    - location: script/ApplicationStop.sh
+    - location: scripts/ApplicationStop.sh
       timeout: 60
       runas: root
   BeforeInstall:
-    - location: script/BeforeInstall.sh
+    - location: scripts/BeforeInstall.sh
       timeout: 60
       runas: root
   AfterInstall:
-    - location: script/AfterInstall.sh
+    - location: scripts/AfterInstall.sh
       timeout: 60
       runas: root
   ApplicationStart:
-    - location: script/ApplicationStart.sh
+    - location: scripts/ApplicationStart.sh
       timeout: 180
       runas: root
   ValidateService:
-    - location: script/ValidateService.sh
+    - location: scripts/ValidateService.sh
       timeout: 60
       runas: root
