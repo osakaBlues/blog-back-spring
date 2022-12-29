@@ -1,0 +1,31 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/deploy/blog-back-spring
+    overwirte: yes
+permissions:
+  - object: /
+    owner: ubuntu
+    group: ubuntu
+hooks:
+  ApplicationStop:
+    - location: script/ApplicationStop.sh
+      timeout: 60
+      runas: ubuntu
+  BeforeInstall:
+    - location: script/BeforeInstall.sh
+      timeout: 60
+      runas: ubuntu
+  AfterInstall:
+    - location: script/AfterInstall.sh
+      timeout: 60
+      runas: ubuntu
+  ApplicationStart:
+    - location: script/ApplicationStart.sh
+      timeout: 180
+      runas: ubuntu
+  ValidateSercive:
+    - location: script/ValidateService.sh
+      timeout: 60
+      runas: ubuntu
