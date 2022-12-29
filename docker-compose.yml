@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    restart: always
+  db:
+    image: mariadb:latest
+    ports:
+      - "33066:3306"
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    env_file: ./.env
+    environment:
+      - TZ=Asia/Seoul
+      - MYSQL_HOST=localhost
+      - MYSQL_PORT=3306
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=test
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=test
+      - MYSQL_ROOT_HOST=%
