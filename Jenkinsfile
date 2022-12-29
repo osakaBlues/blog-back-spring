@@ -68,7 +68,7 @@ pipeline {
             steps{
                 script{
                     try {
-                        sh "tar -cf back-spring.tar .env docker-compose.yml"
+                        sh "tar -cf back-spring.tar .env docker-compose.yml appspec.yml scripts"
                     } catch (error) {
                         errorHandler(error)
                         return
