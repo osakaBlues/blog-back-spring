@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "Blog front stoping..."
+echo "Blog back spring stopping..."
